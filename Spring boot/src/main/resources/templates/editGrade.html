@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Grades for Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            padding: 8px;
+            width: 100px;
+        }
+        .save-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+        .save-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Grades for Course ID: <span th:text="${courseId}"></span></h1>
+
+    <form id="editGradesForm">
+        <input type="hidden" name="courseId" th:value="${courseId}">
+        <table>
+            <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Current Grade</th>
+                <th>New Grade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${studentGrades}">
+                <td th:text="${student.studentID}"></td>
+                <td th:text="${student.studentName}"></td>
+                <td th:text="${student.currentGrade}"></td>
+                <td>
+                    <!-- Include studentID in the name attribute for newGrade -->
+                    <input type="hidden" name="studentID" th:value="${student.studentID}">
+                    <input type="number" name="newGrade_${student.studentID}" min="0" max="100" th:value="0">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="save-button" onclick="submitForm()">Save Changes</button>
+        <div id="message" style="color: green; display: none;">Changes Saved</div>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        var form = document.getElementById('editGradesForm');
+        var formData = new FormData(form);
+
+        fetch(window.location.href, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('message').style.display = 'block';
+                } else {
+                    alert('Failed to update grades.');
+                }
+            })
+            .catch(error => {
+                alert('An error occurred: ' + error.message);
+            });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <!-- Grading System Servlet -->
+  <servlet>
+    <servlet-name>GradingSystemServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.GradingSystemServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GradingSystemServlet</servlet-name>
+    <url-pattern>/homepage</url-pattern>
+  </servlet-mapping>
+
+  <!-- Role Servlet -->
+  <servlet>
+    <servlet-name>RoleServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.RoleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RoleServlet</servlet-name>
+    <url-pattern>/role</url-pattern>
+  </servlet-mapping>
+
+  <!-- Grades Servlet -->
+  <servlet>
+    <servlet-name>GradesServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.studentServlets.GradesServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GradesServlet</servlet-name>
+    <url-pattern>/role/student/viewGrades</url-pattern>
+  </servlet-mapping>
+
+  <!-- SuperAdmin Menu Servlet -->
+  <servlet>
+    <servlet-name>SuperMenuServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.superAdminServlets.SuperMenuServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SuperMenuServlet</servlet-name>
+    <url-pattern>/role/superAdmin/menu/viewSuperAdminOptions</url-pattern>
+  </servlet-mapping>
+
+  <!-- Servlet for Add Admin -->
+  <servlet>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.superAdminServlets.AddAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <url-pattern>/role/superAdmin/menu/addAdmin</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Servlet for Remove Admin -->
+  <servlet>
+    <servlet-name>RemoveAdminServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.superAdminServlets.RemoveAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveAdminServlet</servlet-name>
+    <url-pattern>/role/superAdmin/menu/removeAdmin</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Servlet for View Admins -->
+  <servlet>
+    <servlet-name>ViewAdminsServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.superAdminServlets.ViewAdminsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminsServlet</servlet-name>
+    <url-pattern>/role/superAdmin/menu/viewAdmins</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for TeacherServlet -->
+  <servlet>
+    <servlet-name>TeacherServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.teacherServlets.TeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherServlet</servlet-name>
+    <url-pattern>/role/teacher/courses</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for EditGrades -->
+  <servlet>
+    <servlet-name>EditGradesServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.teacherServlets.EditGradesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditGradesServlet</servlet-name>
+    <url-pattern>/role/teacher/editGrades</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for admin menus -->
+
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/role/admin/menu</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for Manage Students -->
+  <servlet>
+    <servlet-name>ManageStudentsServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.ManageStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageStudentsServlet</servlet-name>
+    <url-pattern>/role/admin/manageStudents</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for add Student -->
+
+  <servlet>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AddStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <url-pattern>/admin/manageStudents/addStudent</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for Remove Student -->
+
+  <servlet>
+    <servlet-name>RemoveStudentServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.RemoveStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveStudentServlet</servlet-name>
+    <url-pattern>/admin/manageStudents/removeStudent</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for enroll Students -->
+
+  <servlet>
+    <servlet-name>EnrollStudentServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.EnrollStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnrollStudentServlet</servlet-name>
+    <url-pattern>/admin/manageStudents/enrollStudent</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for manage teachers -->
+
+  <servlet>
+    <servlet-name>ManageTeachersServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.ManageTeachersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageTeachersServlet</servlet-name>
+    <url-pattern>/role/admin/manageTeachers</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for add teacher -->
+
+  <servlet>
+    <servlet-name>AddTeacherServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AddTeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddTeacherServlet</servlet-name>
+    <url-pattern>/admin/manageTeachers/addTeacher</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for remove teachers -->
+
+  <servlet>
+    <servlet-name>RemoveTeacherServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.RemoveTeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveTeacherServlet</servlet-name>
+    <url-pattern>/admin/manageTeachers/removeTeacher</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for assign teachers -->
+
+  <servlet>
+    <servlet-name>AssignTeacherServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AssignTeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AssignTeacherServlet</servlet-name>
+    <url-pattern>/admin/manageTeachers/assignTeacher</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet for manage Courses -->
+
+  <servlet>
+    <servlet-name>ManageCoursesServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.ManageCoursesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageCoursesServlet</servlet-name>
+    <url-pattern>/role/admin/manageCourses</url-pattern>
+  </servlet-mapping>
+
+
+
+  <!-- servlet for add course -->
+
+  <servlet>
+    <servlet-name>AddCourseServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AddCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCourseServlet</servlet-name>
+    <url-pattern>/admin/manageCourses/addCourse</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- servlet for remove course -->
+
+  <servlet>
+    <servlet-name>RemoveCourseServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.RemoveCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveCourseServlet</servlet-name>
+    <url-pattern>/admin/manageCourses/removeCourse</url-pattern>
+  </servlet-mapping>
+
+
+
+  <!-- servlet for assign course -->
+
+  <servlet>
+    <servlet-name>AssignCourseServlet</servlet-name>
+    <servlet-class>com.gradingSystem.servlets.role.adminServlets.AssignCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AssignCourseServlet</servlet-name>
+    <url-pattern>/admin/manageCourses/assignCourse</url-pattern>
+  </servlet-mapping>
+</web-app>
